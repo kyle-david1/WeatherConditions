@@ -41,13 +41,16 @@ function currentForecast(){
     return response.json();
     }).then(function(data){
         console.log(data);
-        // APPEND TO PAGE   
+        console.log("name",data.name)   
+        console.log("temp",data.temp)
+        console.log("windSpeed",data.wind.speed)
+        console.log("humidity",data.main.humidity)
     })
     };
 
 
 
-
+// APPEND TO PAGE 
 
 
 
