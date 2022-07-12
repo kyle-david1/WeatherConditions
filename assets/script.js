@@ -9,34 +9,40 @@
 // WHEN I click on a city in the search history
 // THEN I am again presented with current and future conditions for that city
 
-var apiKey = 'd2e2c17de561fb5216c9679df62394b5';
-var userSearch = ""
-var currentWeather = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}`;
-var geoAPIurl= `http://api.openweathermap.org/geo/1.0/direct?q={city name},{state code},{country code}&limit={30}&appid=${apiKey}`;
-var futureAPIurl
-// Value from search form
+var geoApiKey = 'd2e2c17de561fb5216c9679df62394b5';
+var searchInputVal = document.querySelector("#user-search")
+// userSearch = 'Austin';
+const btnEl = document.querySelector("#user-form");
+
+var currentWeather = `https://api.openweathermap.org/data/2.5/onecall?lat=' + lat + '&lon=' + lon + '&appid=d2e2c17de561fb5216c9679df62394b5`;
+
+
 var lat;
 var lon;
 
 
-// function getLatLon then pass into geoAPI -------does 30 work for limit number? what should this be?
-function getLatLon(){
 
-fetch(`http://api.openweathermap.org/geo/1.0/direct?q={city name},{state code},{country code}&limit=30&appid=${apiKey}`)    
-.then(function(response){
-    return response.json();
-}).then(function(data){
-    console.log(data);
-    console.log("lat", data[0].lat)
-    console.log("lon", data[0].lon)
-    lat = data[0].lat
-    lon= data[0].lon
-    currentForecast();
-});
-};
+// ' + userSearch + '
+function getLatLon(userSearch) {
+    var geoAPIurl = `http://api.openweathermap.org/geo/1.0/direct?q=${userSearch}&limit=5&appid=${geoApiKey}`
+    console.log("does search work?");
+    
+fetch(geoAPIurl) 
 
-function currentForecast(){
-    fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}`)
+    .then(function(response){
+        return response.json();
+    })
+    .then(function(data){
+        console.log(data);
+        console.log("latlon", data[0])
+
+    })};
+        
+    // getWeather(data[0]) })
+function getCurrentWeather () {
+    var currentWeather = `https://api.openweathermap.org/data/2.5/onecall?lat=' + lat + '&lon=' + lon + '&appid=d2e2c17de561fb5216c9679df62394b5`
+    
+fetch(currentWeather)
     .then(function(response){
     return response.json();
     }).then(function(data){
@@ -45,12 +51,48 @@ function currentForecast(){
         console.log("temp",data.temp)
         console.log("windSpeed",data.wind.speed)
         console.log("humidity",data.main.humidity)
-    })
+
+    })};
+
+
+
+function handleSearchSubmit(event) {
+    event.preventDefault();
+    if (searchInputVal.value) {
+        console.log("Enter a City!", searchInputVal);
+        return;}
+    
+    
+
+    let userSearch = searchInputVal.value.trim();
+    getLatLon(userSearch);
+    console.log("added");
+
     };
 
 
 
-// APPEND TO PAGE 
+// append elements to page
+// create element with JS 
+// append data from each card
+// createElement.textcontent
+
+var days = document.getElementById("city")
+var city = document.getElementById("wind")
+var temp = document.getElementById("temp")
+var windSpeed = document.getElementById("humidity")
+var humidity = document.getElementById("index")
+
+    
+
+ 
+
+
+// // add event listener to submit button
+btnEl.addEventListener('submit', handleSearchSubmit)
+
+
+// // APPEND TO PAGE 
 
 
 
