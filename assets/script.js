@@ -10,20 +10,24 @@
 // THEN I am again presented with current and future conditions for that city
 
 var geoApiKey = 'd2e2c17de561fb5216c9679df62394b5';
-var searchInputVal = document.querySelector("#user-search")
+var searchInputEl = document.querySelector("#user-search")
 // userSearch = 'Austin';
 const btnEl = document.querySelector("#user-form");
+
 
 var currentWeather = `https://api.openweathermap.org/data/2.5/onecall?lat=' + lat + '&lon=' + lon + '&appid=d2e2c17de561fb5216c9679df62394b5`;
 
 
-var lat;
-var lon;
+// var lat;
+// var lon;
 
 
 
 // ' + userSearch + '
-function getLatLon(userSearch) {
+function getLatLon() {
+    event.preventDefault()
+    let userSearch = searchInputEl.value.trim();
+    console.log('return search', userSearch);
     var geoAPIurl = `http://api.openweathermap.org/geo/1.0/direct?q=${userSearch}&limit=5&appid=${geoApiKey}`
     console.log("does search work?");
     
@@ -36,39 +40,63 @@ fetch(geoAPIurl)
         console.log(data);
         console.log("latlon", data[0])
 
-    })};
-        
-    // getWeather(data[0]) })
-function getCurrentWeather () {
-    var currentWeather = `https://api.openweathermap.org/data/2.5/onecall?lat=' + lat + '&lon=' + lon + '&appid=d2e2c17de561fb5216c9679df62394b5`
+
+        var lat = data[0].lat;
+        var lon = data[0].lon;
+
     
-fetch(currentWeather)
+        
+
+// var currentWeather = `https://api.openweathermap.org/data/2.5/onecall?lat=' + lat + '&lon=' + lon + '&appid=d2e2c17de561fb5216c9679df62394b5`
+    
+fetch('https://api.openweathermap.org/data/2.5/onecall?lat=' + lat + '&lon=' + lon + '&appid=d2e2c17de561fb5216c9679df62394b5&units=imperial')
     .then(function(response){
     return response.json();
     }).then(function(data){
-        console.log(data);
-        console.log("name",data.name)   
-        console.log("temp",data.temp)
-        console.log("windSpeed",data.wind.speed)
-        console.log("humidity",data.main.humidity)
+        console.log('second fetch', data);
+        var temp = data.current.temp;
+        console.log("temp", temp)  
+        var wind = data.current.wind_speed;
+        console.log("wind speed", wind)  
+        var humidity = data.current.humidity;
+        console.log("humidity", humidity)  
+        var uvi = data.current.uvi;
+        console.log("uvi", uvi)   
+            
+        var daysEl = document.getElementById("city")
+        var city = document.getElementById("wind")
+        var temp = document.getElementById("temp")
+        var windSpeed = document.getElementById("humidity")
+        var humidity = document.getElementById("index")
+        
+        daysEl.textContent
 
-    })};
+        // var forecastData = data.daily
+        // for loop for the five day forecast
+        // var dayDisplay = forecastData[i]
 
+        // do variables for each of the components that we need from the daily weather
+        // do variable that creates an element. dailytemp.textContent(displaydata)
 
+    })
 
-function handleSearchSubmit(event) {
-    event.preventDefault();
-    if (searchInputVal.value) {
-        console.log("Enter a City!", searchInputVal);
-        return;}
+});
+}
+
+// function handleSearchSubmit(event) {
+//     event.preventDefault();
+//     if (searchInputEl.value) {
+//         console.log("Enter a City!", searchInputEl);
+//         getLatLon();
+//     }
     
     
 
-    let userSearch = searchInputVal.value.trim();
-    getLatLon(userSearch);
-    console.log("added");
+    
+//     getLatLon(userSearch);
+//     console.log(userSearch, "userSearch");
 
-    };
+//     };
 
 
 
@@ -89,7 +117,7 @@ var humidity = document.getElementById("index")
 
 
 // // add event listener to submit button
-btnEl.addEventListener('submit', handleSearchSubmit)
+btnEl.addEventListener('submit', getLatLon)
 
 
 // // APPEND TO PAGE 
