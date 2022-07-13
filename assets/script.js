@@ -54,22 +54,26 @@ fetch('https://api.openweathermap.org/data/2.5/onecall?lat=' + lat + '&lon=' + l
     return response.json();
     }).then(function(data){
         console.log('second fetch', data);
+        var name = data.name
+        console.log("city name", name);
+        var dateTime = data.current.dt;
+        console.log("date and time", dateTime);
         var temp = data.current.temp;
-        console.log("temp", temp)  
+        console.log("temp", temp) ; 
         var wind = data.current.wind_speed;
-        console.log("wind speed", wind)  
+        console.log("wind speed", wind); 
         var humidity = data.current.humidity;
-        console.log("humidity", humidity)  
+        console.log("humidity", humidity);  
         var uvi = data.current.uvi;
-        console.log("uvi", uvi)   
+        console.log("uvi", uvi);
             
-        var daysEl = document.getElementById("city")
-        var city = document.getElementById("wind")
-        var temp = document.getElementById("temp")
-        var windSpeed = document.getElementById("humidity")
-        var humidity = document.getElementById("index")
+        // var dateEl = document.getElementById("day")
+        // var cityEl = document.getElementById("city")
+        // var tempEl = document.getElementById("temp")
+        // var windSpeedEl = document.getElementById("humidity")
+        // var humidityEl = document.getElementById("index")
         
-        daysEl.textContent
+        // dateEl.textContent = 
 
         // var forecastData = data.daily
         // for loop for the five day forecast
@@ -83,21 +87,6 @@ fetch('https://api.openweathermap.org/data/2.5/onecall?lat=' + lat + '&lon=' + l
 });
 }
 
-// function handleSearchSubmit(event) {
-//     event.preventDefault();
-//     if (searchInputEl.value) {
-//         console.log("Enter a City!", searchInputEl);
-//         getLatLon();
-//     }
-    
-    
-
-    
-//     getLatLon(userSearch);
-//     console.log(userSearch, "userSearch");
-
-//     };
-
 
 
 // append elements to page
@@ -105,11 +94,6 @@ fetch('https://api.openweathermap.org/data/2.5/onecall?lat=' + lat + '&lon=' + l
 // append data from each card
 // createElement.textcontent
 
-var days = document.getElementById("city")
-var city = document.getElementById("wind")
-var temp = document.getElementById("temp")
-var windSpeed = document.getElementById("humidity")
-var humidity = document.getElementById("index")
 
     
 
@@ -120,7 +104,7 @@ var humidity = document.getElementById("index")
 btnEl.addEventListener('submit', getLatLon)
 
 
-// // APPEND TO PAGE 
+
 
 
 
