@@ -10,67 +10,77 @@
 </head>
 
     <!-- Header: Weather Dashboard -->
-    <body>
-        <header class="container-fluid text-white text-center my-header">
-            <div class="row">
-              <div class="col-12">
-                <h1>Weather Dashboard</h1>
-              </div>
-            </div>
-        </header>
+  <body>
+    <header class="container-fluid text-white text-center my-header">
+      <div class="row">
+        <div class="col-12">
+          <h1>Weather Dashboard</h1>
+        </div>
+      </div>
+    </header>
 
         
         
 
 <!-- City Search Bar -->
-    <main class="row flex-row justify-space-between">
+    <main class="container-fluid">
+      <div class="row">
         <div class="col-6">
-            <div class="card col-md-4">
-                <h3 class="card-header text-uppercase">Search By City </h3>
+          <div class="card col-md-4">
+            </div><h3 class="card-header text-uppercase">Search By City</h3>
+              <br>
                 <form id="user-form" class="card-body">
-                <label class="form-label" for="username">City</label>
-                <input name="user-search" id="user-search" type="text" autofocus="true" class="form-input" />
-                <button type="submit" id="search-btn" class="btn">Search</button>
-            </form>
-          </main>
-            <br>
-       
-        <div class="row" id="weather-container">
-          <div class="col-lg-6"></div>
-                <div>City:<span id="city"></span></div>
-                <div>Date:<span id="date"></span></div>
-                <div>Temperature:<span id="temp"></span></div>
-                <div>Wind Speed:<span id="wind"></span></div>
-                <div>Humidity:<span id="humidity"></span></div>
-                <div>UV Index:<span id="index"></span></div>
-
-
-        <!-- </div>
-       
-            <container class="col-6"></container> 
-            <div id="current-weather">
-                <h3 id="city">City and Date:</h3>
-                <ul>
-                    <li id="temp">Temp:</li>
-                    <li id="wind">Wind:</li>
-                    <li id="humidity">Humidity:</li>
-                    <li id="uv">UV index:</li>
-                </ul>
-
-            </div>
-          </div> -->
-
-          
-        
-    <!-- 5 cards for 5 day forecast -->
-    <div class="col-12 col-md-8">
-        <div id="days">
-            <h3 id="info1"></h3>
-            <p id="info2"></p>
-            <p id="info3"></p>
-            <p id="info4"></p>
+                  <label class="form-label" for="username">City</label>
+                    <input name="user-search" id="user-search" type="text" autofocus="true" class="form-input" />
+                      <button type="submit" id="search-btn" class="btn">Search</button>
+                </form>
+            </div>      
+        <div class="col-6"  
+          <div id="weather-container">
+            <div>City:<span id="city"></span></div>
+            <div>Date:<span id="date"></span></div>
+            <div>Temperature:<span id="temp"></span></div>
+            <div>Wind Speed:<span id="wind"></span></div>
+            <div>Humidity:<span id="humidity"></span></div>
+            <div>UV Index:<span id="index"></span></div>
         </div>
-    </div>
+    </main>
+    <br>
+    <br>
+    <br> 
+    <br> 
+      <div class="row">
+        <div class="col-2 daily-container">
+          <div>Date:<span id="date1"></span></div>
+          <div>Temp:<span id="temp1"></span></div>
+          <div>Wind Speed:<span id="wind1"></span></div>
+          <div>Humidity:<span id="humidity1"></span></div>
+        </div>
+        <div class="col-2 daily-container">
+          <div>Date:<span id="date2"></span></div>
+          <div>Temp:<span id="temp2"></span></div>
+          <div>Wind Speed:<span id="wind2"></span></div>
+          <div>Humidity:<span id="humidity2"></span></div>
+        </div>
+        <div class="col-2 daily-container">
+          <div>Date:<span id="date3"></span></div>
+          <div>Temp:<span id="temp3"></span></div>
+          <div>Wind Speed:<span id="wind3"></span></div>
+          <div>Humidity:<span id="humidity3"></span></div>
+        </div>
+        <div class="col-2 daily-container">
+          <div>Date:<span id="date4"></span></div>
+          <div>Temp:<span id="temp4"></span></div>
+          <div>Wind Speed:<span id="wind4"></span></div>
+          <div>Humidity:<span id="humidity4"></span></div>
+        </div>
+        <div class="col-2 daily-container">
+          <div>Date:<span id="date5"></span></div>
+          <div>Temp:<span id="temp5"></span></div>
+          <div>Wind Speed:<span id="wind5"></span></div>
+          <div>Humidity:<span id="humidity5"></span></div>
+        </div>
+      </div>
   
   
   
@@ -79,6 +89,12 @@
   
   
   
+  
+  
+  
+  
+  
+  </body>
   
   
   
