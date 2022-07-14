@@ -82,7 +82,7 @@ fetch('https://api.openweathermap.org/data/2.5/onecall?lat=' + lat + '&lon=' + l
         console.log('second fetch', data);
         
         cityEl.textContent= userSearch.value
-        console.log("city:", userSearch);
+        console.log("city", userSearch);
         
         var dateTime = data.current.dt;
         console.log("date and time", dateTime);
