@@ -58,7 +58,7 @@ function getLatLon() {
     event.preventDefault()
     let userSearch = searchInputEl.value.trim();
     console.log('return search', userSearch);
-    var geoAPIurl = `http://api.openweathermap.org/geo/1.0/direct?q=${userSearch}&limit=5&appid=${geoApiKey}`
+    var geoAPIurl = `https://api.openweathermap.org/geo/1.0/direct?q=${userSearch}&limit=5&appid=${geoApiKey}`
     console.log("does search work?");
     
 fetch(geoAPIurl) 
