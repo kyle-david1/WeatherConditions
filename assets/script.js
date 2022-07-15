@@ -45,6 +45,7 @@ var temp5El = document.getElementById('temp5');
 var wind5El = document.getElementById('wind5');
 var humidity5El = document.getElementById('humidity5');
 
+
 var currentWeather = `https://api.openweathermap.org/data/2.5/onecall?lat=' + lat + '&lon=' + lon + '&appid=d2e2c17de561fb5216c9679df62394b5`;
 
 
@@ -70,6 +71,10 @@ fetch(geoAPIurl)
         console.log(data);
         console.log("latlon", data[0])
 
+        var cityName = data[0].name;
+        console.log("cityName", cityName);
+        cityEl.textContent = cityName;
+        
 
         var lat = data[0].lat;
         var lon = data[0].lon;
@@ -81,8 +86,8 @@ fetch('https://api.openweathermap.org/data/2.5/onecall?lat=' + lat + '&lon=' + l
     }).then(function(data){
         console.log('second fetch', data);
         
-        cityEl.textContent= userSearch.value
-        console.log("city", userSearch);
+        // cityEl.textContent= userSearch.value
+        // console.log("city", userSearch);
         
         var dateTime = data.current.dt;
         console.log("date and time", dateTime);
@@ -95,7 +100,7 @@ fetch('https://api.openweathermap.org/data/2.5/onecall?lat=' + lat + '&lon=' + l
         var uvi = data.current.uvi;
         console.log("uvi", uvi);
         //  since cityEl comes from another API call, do I need to put this text content in the first API call so it wont be undefined
-        cityEl.textContent = (data.name);
+        
         dateEl.textContent = (data.current.dt);
         tempEl.textContent = (data.current.temp);
         windEl.textContent = (data.current.wind_speed);

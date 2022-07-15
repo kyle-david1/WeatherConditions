@@ -14,16 +14,26 @@
   color: whitesmoke;
 }
 
-/* #daily-container1 {
-  background-color: #184C78;
+
+#daily-container1 { 
+  background-color: #2674b9;
   color: whitesmoke;
+  border: 3px solid black;
   
 }
 
-#daily-container2 {
-  background-color: #184C78;
+#daily-container3 {
+  background-color: #2674b9;
   color: whitesmoke;
-} */
+  border: 3px solid black;
+  
+} 
+
+#daily-container5 {
+  background-color: #2674b9;
+  color: whitesmoke;
+  border: 3px solid black;
+}
 
 
 
