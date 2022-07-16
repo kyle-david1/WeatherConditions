@@ -105,7 +105,14 @@ fetch('https://api.openweathermap.org/data/2.5/onecall?lat=' + lat + '&lon=' + l
         tempEl.textContent = (data.current.temp);
         windEl.textContent = (data.current.wind_speed);
         humidityEl.textContent = (data.current.humidity);
-        indexEl.textContent = (data.current.index);
+        indexEl.textContent = (data.current.uvi);
+        // if (data.current.uvi <= 8) {
+        //   setAttribute=("style", "background-color: green");
+        // } 
+        // // else (data.current.uvi <=7) {
+        // //   setAttribute=("style", "background-color: green");
+        // // };
+        
 
         date1El.textContent = (data.daily[0].dt);
         temp1El.textContent = (data.daily[0].temp.day);
